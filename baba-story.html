@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Baba Turns 40</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background: #fff7e6;
+    text-align: center;
+  }
+  #story {
+    font-size: 24px;
+    padding: 20px;
+  }
+  #scene {
+    font-size: 120px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hint {
+    font-size: 14px;
+    opacity: 0.7;
+  }
+  button {
+    font-size: 16px;
+    padding: 8px 16px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+
+<body>
+
+<div id="story"></div>
+<div id="scene"></div>
+<div class="hint" id="hint"></div>
+
+<script>
+const story = document.getElementById("story");
+const scene = document.getElementById("scene");
+const hint = document.getElementById("hint");
+
+let step = 0;
+
+function next() {
+  step++;
+  load();
+}
+
+function load() {
+  hint.innerText = "";
+
+  if (step === 0) {
+    story.innerText = "Once upon a time, Baba was just a child.";
+    scene.innerText = "👶";
+    setTimeout(next, 2000);
+  }
+
+  if (step === 1) {
+    story.innerText = "He grew into a sporty, competitive teenager.";
+    scene.innerText = "🏃‍♂️⚽";
+    setTimeout(next, 2000);
+  }
+
+  if (step === 2) {
+    story.innerText = "He married Mama, and their family began.";
+    scene.innerText = "👨‍❤️‍👩";
+    setTimeout(next, 2000);
+  }
+
+  if (step === 3) {
+    story.innerText = "Wareesha arrived… then YOU, the Queen 👑";
+    scene.innerText = "👨‍👩‍👧‍👧";
+    setTimeout(next, 2500);
+  }
+
+  if (step === 4) {
+    story.innerText = "Saying goodbye to Pakistan was emotional.";
+    scene.innerText = "🇵🇰✈️";
+    hint.innerText = "Click the airplane to leave";
+    scene.onclick = () => {
+      scene.innerText = "✈️➡️";
+      scene.onclick = null;
+      setTimeout(next, 1500);
+    };
+  }
+
+  if (step === 5) {
+    story.innerText = "Welcome to Canada — a new beginning.";
+    scene.innerText = "🇨🇦❄️";
+    setTimeout(next, 2000);
+  }
+
+  if (step === 6) {
+    story.innerText = "Then Baba found a new passion… GOLF!";
+    scene.innerText = "🏌️‍♂️⛳";
+    hint.innerText = "Click to hit a hole in one";
+    scene.onclick = () => {
+      scene.innerText = "🏌️‍♂️💥⛳";
+      scene.onclick = null;
+      setTimeout(next, 1500);
+    };
+  }
+
+  if (step === 7) {
+    story.innerText = "Recently, the family traveled to LA.";
+    scene.innerText = "🌴😎📸";
+    setTimeout(next, 2000);
+  }
+
+  if (step === 8) {
+    story.innerText = "Happy 40th Birthday Baba ❤️";
+    scene.innerText = "🎂🎉🎈";
+    hint.innerText = "Tap to celebrate!";
+    scene.onclick = () => {
+      scene.innerText = "🎉🎉🎉🎉🎉";
+    };
+  }
+}
+
+load();
+</script>
+
+</body>
+</html>
+
